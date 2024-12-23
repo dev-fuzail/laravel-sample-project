@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,6 +11,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+//        $this->middleware(\App\Http\Middleware\AdminMiddleware::class);
+    }
+
     public function index()
     {
         $products = Product::all();
@@ -21,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add_product');
+        $category = Category::all();
+        return view('admin.products.add_product', compact('category'));
     }
 
     /**
@@ -37,8 +44,10 @@ class ProductController extends Controller
 
         Product::create([
             'product_name' => $request['product_name'],
+            'price' => $request['price'],
             'details' => $request['details'],
-            'image_link' => $path
+            'image_link' => $path,
+            'category_id' => $request['category']
         ]);
         return redirect('/admin/product');
     }
@@ -56,7 +65,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit_product', compact('product'));
+        $category = Category::all();
+        return view('admin.products.edit_product', compact('product', 'category'));
     }
 
     /**
@@ -72,9 +82,10 @@ class ProductController extends Controller
 
         $product->product_name = $request['product_name'];
         $product->details = $request['details'];
+        $product->price = $request['price'];
         $product->image_link = $path;
+        $product->category_id = $request['category'];
         $product->save();
-        // dd($product);
         return redirect('admin/product');
     }
 

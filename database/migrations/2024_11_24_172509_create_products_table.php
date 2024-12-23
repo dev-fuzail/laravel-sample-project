@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('product_name', 150);
+            $table->Integer('price');
             $table->string('details', 255)->nullable();
-            $table->string('image_link', 150);
+            $table->string('image_link', 150)->nullable();
             $table->boolean('status')->default(1);
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
