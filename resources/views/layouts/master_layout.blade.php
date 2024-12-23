@@ -8,7 +8,7 @@
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
+       <!-- site metas -->
       <title>{{ $title?? "Home"}}</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
@@ -31,10 +31,12 @@
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <!--  -->
       <!-- owl stylesheets -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
       <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+      <link rel="stylesoeet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      @yield('page-css')
    </head>
    <body>
     @include('layouts/header')
@@ -45,23 +47,28 @@
       @include('layouts/footer')
       <!-- copyright section end -->
       <!-- Javascript files-->
-      <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-      <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-      <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-      <script src="{{ asset('assets/js/jquery-3.0.0.min.js') }}"></script>
-      <script src="{{ asset('assets/js/plugin.js') }}"></script>
-      <!-- sidebar -->
-      <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-      <script src="{{ asset('assets/js/custom.js') }}"></script>
-      <script>
-         function openNav() {
-           document.getElementById("mySidenav").style.width = "250px";
-         }
-         
-         function closeNav() {
-           document.getElementById("mySidenav").style.width = "0";
-         }
-      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin.js') }}"></script>
+    @yield('header-page-js')
+    <!-- sidebar -->
+    <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    @yield('page-js')
+
+    <script>
+     function openNav() {
+       document.getElementById("mySidenav").style.width = "250px";
+     }
+
+     function closeNav() {
+       document.getElementById("mySidenav").style.width = "0";
+     }
+    </script>
+
    </body>
 </html>
 

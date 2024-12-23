@@ -6,6 +6,7 @@
 /storage/*.key
 /storage/pail
 /storage/html
+/storage/admin-theme
 /vendor
 .env
 .env.backup

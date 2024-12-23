@@ -20,6 +20,130 @@
     transition: ease all 0.5s;
 }
 
+.input-group {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+ }
+ 
+ .input-group .form-control {
+    border-radius: 30px;
+    box-shadow: none;
+ }
+ 
+ .input-group .btn-secondary {
+    border-radius: 30px;
+    background-color: #f26522;
+    border-color: #f26522;
+    transition: background-color 0.3s;
+ }
+ 
+ .input-group .btn-secondary:hover {
+    background-color: #d85e1f;
+    border-color: #d85e1f;
+ }
+ 
+ /* Search Results Styling */
+ #search_results {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+ }
+ 
+ #search_results a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background-color 0.3s, color 0.3s;
+ }
+ 
+ #search_results a:hover {
+    background-color: #f26522;
+    color: white;
+ }
+ 
+ /* Result item hover effect */
+ #search_results a:hover {
+    cursor: pointer;
+ }
+ 
+ /* Making search results more dynamic and visually clean */
+ #search_results a:last-child {
+    border-bottom: none;
+ }
+
+ /* Styling for the "Buy Now" button */
+.custom-btn-container .custom-buy-now {
+    display: inline-block;
+    background-color: #f26522;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn-container .custom-buy-now:hover {
+    background-color: #d85e1f;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Styling for the "Add to Cart" button with cart icon */
+.custom-btn-container .custom-add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #f26522;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #f26522;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.custom-btn-container .custom-add-to-cart:hover {
+    background-color: #f26522;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Cart icon inside the button */
+.custom-btn-container .custom-add-to-cart i {
+    font-size: 16px;
+}
+
+/* Ensure header navigation is accessible */
+nav {
+    position: relative;
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
+/* Avoid other sections overlapping */
+.carousel, .custom-pagination, .box_main {
+    position: relative;
+    z-index: 1; /* Keep these below the header */
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
